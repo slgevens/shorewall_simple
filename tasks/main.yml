@@ -28,6 +28,10 @@
 - name: Generate shorewall.conf 
   template: src=shorewall.conf.j2 dest={{ shorewall_config_file }}
 
+### ESC add masq conf                                                                                      
+- name: Generate masq
+  template: src=masq.j2 dest={{ shorewall_masq_file }}
+
 # Generate service configuration
 - name: Generate Shorewall service conf
   template: src=shorewall.j2 dest={{ shorewall_service_config }} owner=root group=root

@@ -9,7 +9,8 @@ This role installs and configures Shorewall for a simple, single network interfa
 
 ADDS
 ----
-
+(31/12/15)
+- masq options 
 (26/12/15)
 - IP_FORWARDING=Yes
 
@@ -80,6 +81,16 @@ Shorewall configuration.
         time: "-"
         headers: "-"
         switch: "-"
+
+
+    shorewall_masq:
+    - interface : "eth1"
+      source: "10.10.0.192/8"
+      address: "192.168.1.1"
+      protocol: "tcp"
+      port: "8080"
+      ipsec: "-"
+      mark: "-"
 
 Examples
 ========
