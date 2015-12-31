@@ -1,4 +1,3 @@
 {% for m in shorewall_masq %}
-{{ m.interface }}
-{% if m.source is defined %}{{ m.source }}{% else %}-{% endif %}	{% if m.address is defined %}{{ m.address }}{% else %}-{% endif %} {% if m.protocol is defined %}{{ m.protocol }}{% else %}-{% endif %} {% if m.port is defined %}{{ m.port }}{% else %}-{% endif %} {% if m.ipsec is defined %}{{ m.ipsec }}{% else %}-{% endif %} {% if m.mark is defined %}{{ m.mark }}{% else %}-{% endif %}
+{{ m.interface }}	   {% if m.source is defined %}{{ m.source }}{% else %} - {% endif%}	{% if m.address is defined %}{{ m.address}}{% else %} - {% endif %} {% if m.protocol is defined %}{{ m.protocol }}{% else %} - {% endif %} {% if m.port is defined %}{{ m.port }}{% else %} - {% endif %} {% if m.ipsec is defined %}{{ m.ipsec }}{% else %} - {% endif %} {% if m.mark is defined %}{{ m.mark }}{% else %} - {% endif %}
 {% endfor %}
