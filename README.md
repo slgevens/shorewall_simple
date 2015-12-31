@@ -9,10 +9,11 @@ This role installs and configures Shorewall for a simple, single network interfa
 
 ADDS
 ----
-(31/12/15)
-- masq options 
-(26/12/15)
-- IP_FORWARDING=Yes
+-(31/12/15)
+masq options 
+
+-(26/12/15)
+IP_FORWARDING=Yes
 
 Requirements
 ------------
