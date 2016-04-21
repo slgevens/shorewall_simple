@@ -1,3 +1,6 @@
+{% if dhcp_use_ansible_managed %}# {{ ansible_managed }}{% endif %}
+# Do not edit manually
+
 {% for z in shorewall_zones %}
 {{ z.zone }}	{{ z.type }}	{% if z.options is defined %}{{ z.options }}{% else %}-{% endif %}	{% if z.options_in is defined %}{{ z.options_in }}{% else %}-{% endif %}	{% if z.options_out is defined %}{{ z.options_out }}{% else %}-{% endif %}
 
