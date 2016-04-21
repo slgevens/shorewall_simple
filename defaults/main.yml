@@ -29,3 +29,6 @@ shorewall_rules: []
 
 ### ESC add masq section
 shorewall_masq: []
+
+### Infra by ESC
+shorewall_use_ansible_managed: true
