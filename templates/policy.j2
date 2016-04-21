@@ -1,4 +1,4 @@
-{% if dhcp_use_ansible_managed %}# {{ ansible_managed }}{% endif %}
+{% if shorewall_use_ansible_managed %}# {{ ansible_managed }}{% endif %}
 # Do not edit manually
 
 {% for p in shorewall_policies %}
