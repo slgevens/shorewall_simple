@@ -152,6 +152,7 @@ IMPLICIT_CONTINUE=No
 
 IP_FORWARDING={% if shorewall_ip_forwarding is defined %}{{ shorewall_ip_forwarding }}{% else %}Yes{% endif %}
 
+
 KEEP_RT_TABLES=No
 
 LOAD_HELPERS_ONLY=Yes
@@ -203,6 +204,7 @@ USE_DEFAULT_RT=No
 ZONE2ZONE=2
 
 DOCKER={% if shorewall_docker is defined %}{{ shorewall_docker }}{% else %}Yes{% endif %}
+
 ###############################################################################
 #			P A C K E T   D I S P O S I T I O N
 ###############################################################################
