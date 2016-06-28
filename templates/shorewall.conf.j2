@@ -205,7 +205,7 @@ USE_DEFAULT_RT=No
 
 ZONE2ZONE=2
 
-DOCKER={% if shorewall_docker is defined %}{{ shorewall_docker }}{% else %}Yes{% endif %}
+{% if shorewall_docker is defined %}DOCKER={{ shorewall_docker }}{% else %}{% endif %}
 
 
 ###############################################################################
