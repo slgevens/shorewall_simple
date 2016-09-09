@@ -1,4 +1,5 @@
-{% if shorewall_use_ansible_managed %}# {{ ansible_managed }}{% endif %}
+{% if shorewall_use_ansible_managed %}# {{ ansible_managed }}
+{% endif %}
 # Do not edit manually
 
 ###############################################################################
@@ -23,7 +24,8 @@
 #		       S T A R T U P   E N A B L E D
 ###############################################################################
 
-STARTUP_ENABLED={% if shorewall_enabled is defined %}{{ shorewall_enabled }}{% else %}No{% endif %}
+STARTUP_ENABLED={% if shorewall_enabled is defined %}{{ shorewall_enabled }}{% else %}No
+{% endif %}
 
 ###############################################################################
 #		              V E R B O S I T Y
@@ -150,7 +152,8 @@ FORWARD_CLEAR_MARK=
 
 IMPLICIT_CONTINUE=No
 
-IP_FORWARDING=Yes
+IP_FORWARDING={% if shorewall_ip_forwarding is defined %}{{ shorewall_ip_forwarding }}{% else %}Yes
+{% endif %}
 
 KEEP_RT_TABLES=No
 
@@ -196,11 +199,15 @@ TC_EXPERT=No
 
 TC_PRIOMAP="2 3 3 3 2 3 1 1 2 2 2 2 2 2 2 2"
 
-TRACK_PROVIDERS=Yes
+TRACK_PROVIDERS={% if shorewall_track_providers is defined %}{{ shorewall_track_providers }}{% else %}Yes
+{% endif %}
 
 USE_DEFAULT_RT=No
 
 ZONE2ZONE=2
+
+{% if shorewall_docker is defined %}DOCKER={{ shorewall_docker }}{% else %}
+{% endif %}
 
 ###############################################################################
 #			P A C K E T   D I S P O S I T I O N
@@ -209,6 +216,9 @@ ZONE2ZONE=2
 BLACKLIST_DISPOSITION=DROP
 
 MACLIST_DISPOSITION=REJECT
+
+{% if shorewall_related_disposition is defined %}RELATED_DISPOSITION={{ shorewall_related_disposition }}{% else %}
+{% endif %}
 
 SMURF_DISPOSITION=DROP
 
