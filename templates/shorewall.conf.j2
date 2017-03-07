@@ -38,9 +38,11 @@ VERBOSITY=1
 ###############################################################################
 
 BLACKLIST_LOGLEVEL=
-
+{% if shorewall_log_martians is defined %}
+LOG_MARTIANS={{ shorewall_log_martians }}
+{% else %}
 LOG_MARTIANS=Yes
-
+{% endif %}
 LOG_VERBOSITY=2
 
 LOGALLNEW=
