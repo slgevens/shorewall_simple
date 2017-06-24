@@ -7,4 +7,11 @@
 {% for i in shorewall_interfaces %}
 {{ i.zone }}	{{ i.interface }}	{% if i.broadcast is defined %}{{ i.broadcast }}{% else %}-{% endif %}	{% if i.options is defined %}{{ i.options }}{% else %}-{% endif %}
 
+{% if include_interfaces   is defined %}
+{% for i in include_interfaces   %}
+
+INCLUDE	{{ t.include }}
+{% endfor %}
+{% endif %}
+
 {% endfor %}

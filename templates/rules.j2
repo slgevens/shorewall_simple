@@ -7,4 +7,10 @@
 
 {% endfor %}
 
+{% if include_rules is defined %}
+{% for i in include_rules %}
+INCLUDE {{ t.include }}
+{% endfor %}
+{% endif %}
+
 {% endfor %}
