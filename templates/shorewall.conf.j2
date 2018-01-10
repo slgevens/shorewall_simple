@@ -126,7 +126,7 @@ AUTO_COMMENT=Yes
 
 AUTOMAKE=No
 
-BLACKLISTNEWONLY=Yes
+{% if shorewall_debian_stretch is defined %}#BLACKLISTNEWONLY=Yes{% else %}BLACKLISTNEWONLY=Yes{% endif %}
 
 CLAMPMSS=No
 
