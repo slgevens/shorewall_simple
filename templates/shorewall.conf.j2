@@ -161,7 +161,7 @@ KEEP_RT_TABLES=No
 
 LOAD_HELPERS_ONLY=Yes
 
-LEGACY_FASTSTART=No
+{% if shorewall_debian_stretch is defined %}#LEGACY_FASTSTART=No{% else %}LEGACY_FASTSTART=No{% endif %}
 
 MACLIST_TABLE=filter
 
@@ -247,6 +247,6 @@ ZONE_BITS=0
 #                      D O  N O T  D E L E T E  O R  A L T E R
 ################################################################################
 
-IPSECFILE=zones
+{% if shorewall_debian_stretch is defined %}#IPSECFILE=zones{% else %}IPSECFILE=zones{% endif %}
 
 #LAST LINE -- DO NOT REMOVE
