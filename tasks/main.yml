@@ -5,7 +5,7 @@
 
 # Install Shorewall server
 - name: Install the required  packages in Redhat derivatives
-  yum: name={{ shorewall_package }} state=installed
+  yum: name={{ shorewall_package }} state=present
   when: ansible_os_family == 'RedHat'
 
 - name: Install the required packages in Debian derivatives
