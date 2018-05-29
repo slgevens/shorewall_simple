@@ -48,11 +48,13 @@ FIREWALL=
 #		                L O G G I N G
 ###############################################################################
 
-{% if shorewall_log_martians is defined %}
-LOG_MARTIANS={{ shorewall_log_martians }}
-{% else %}
-LOG_MARTIANS=Yes
-{% endif %}
+BLACKLIST_LOG_LEVEL=
+
+INVALID_LOG_LEVEL=
+
+LOG_BACKEND= 
+
+LOG_MARTIANS={% if shorewall_log_martians is defined %}{{ shorewall_log_martians }}{% else %}Yes{% endif %}
 
 LOG_VERBOSITY=2
 
@@ -70,7 +72,7 @@ MACLIST_LOG_LEVEL=info
 
 RELATED_LOG_LEVEL=
 
-RPFILTER_LOG_LEVEL=infoRPF
+RPFILTER_LOG_LEVEL=info
 
 SFILTER_LOG_LEVEL=info
 
@@ -88,7 +90,7 @@ UNTRACKED_LOG_LEVEL=
 
 ARPTABLES= 
 
-CONFIG_PATH=/etc/shorewall:/usr/share/shorewall
+CONFIG_PATH="/etc/shorewall:/usr/share/shorewall"
 
 GEOIPDIR=/usr/share/xt_geoip/LE
 
@@ -100,13 +102,13 @@ IPSET=
 
 LOCKFILE=
 
-NFACCT=
-
 MODULESDIR=
 
-PERL=/usr/bin/perl
+NFACCT=
 
 PATH="/sbin:/bin:/usr/sbin:/usr/bin:/usr/local/bin:/usr/local/sbin"
+
+PERL=/usr/bin/perl
 
 RESTOREFILE=restore
 
@@ -147,7 +149,7 @@ ADD_SNAT_ALIASES=No
 
 ADMINISABSENTMINDED=Yes
 
-AUTO_COMMENT=Yes
+AUTOCOMMENT=Yes
 
 AUTOHELPERS=Yes
 
@@ -167,13 +169,13 @@ COMPLETE=No
 
 DEFER_DNS_RESOLUTION=Yes
 
-DISABLE_IPV6=No
-
-{% if shorewall_docker is defined %}DOCKER={{ shorewall_docker }}{% else %}{% endif %}
-
 DELETE_THEN_ADD=Yes
 
 DETECT_DNAT_IPADDRS=No
+
+DISABLE_IPV6=No
+
+{% if shorewall_docker is defined %}DOCKER={{ shorewall_docker }}{% else %}No{% endif %}
 
 DONT_LOAD=
 
