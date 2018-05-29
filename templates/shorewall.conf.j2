@@ -52,7 +52,7 @@ BLACKLIST_LOG_LEVEL=
 
 INVALID_LOG_LEVEL=
 
-LOG_BACKEND= 
+LOG_BACKEND=
 
 LOG_MARTIANS={% if shorewall_log_martians is defined %}{{ shorewall_log_martians }}{% else %}Yes{% endif %}
 
@@ -88,7 +88,7 @@ UNTRACKED_LOG_LEVEL=
 #	L O C A T I O N	  O F	F I L E S   A N D   D I R E C T O R I E S
 ###############################################################################
 
-ARPTABLES= 
+ARPTABLES=
 
 CONFIG_PATH="/etc/shorewall:/usr/share/shorewall"
 
@@ -175,7 +175,7 @@ DETECT_DNAT_IPADDRS=No
 
 DISABLE_IPV6=No
 
-{% if shorewall_docker is defined %}DOCKER={{ shorewall_docker }}{% else %}No{% endif %}
+DOCKER={% if shorewall_docker is defined %}{{ shorewall_docker }}{% else %}No{% endif %}
 
 DONT_LOAD=
 
