@@ -34,26 +34,15 @@ STARTUP_ENABLED={% if shorewall_enabled is defined %}{{ shorewall_enabled }}{% e
 VERBOSITY=1
 
 ###############################################################################
-#                               P A G E R
-###############################################################################
-
-PAGER=
-
-###############################################################################
-#                             F I R E W A L L
-###############################################################################
-FIREWALL=
-
-###############################################################################
 #		                L O G G I N G
 ###############################################################################
 
+BLACKLIST_LOGLEVEL=
 {% if shorewall_log_martians is defined %}
 LOG_MARTIANS={{ shorewall_log_martians }}
 {% else %}
 LOG_MARTIANS=Yes
 {% endif %}
-
 LOG_VERBOSITY=2
 
 LOGALLNEW=
@@ -68,10 +57,6 @@ LOGLIMIT=
 
 MACLIST_LOG_LEVEL=info
 
-RELATED_LOG_LEVEL=
-
-RPFILTER_LOG_LEVEL=infoRPF
-
 SFILTER_LOG_LEVEL=info
 
 SMURF_LOG_LEVEL=info
@@ -80,17 +65,11 @@ STARTUP_LOG=/var/log/shorewall-init.log
 
 TCP_FLAGS_LOG_LEVEL=info
 
-UNTRACKED_LOG_LEVEL=
-
 ###############################################################################
 #	L O C A T I O N	  O F	F I L E S   A N D   D I R E C T O R I E S
 ###############################################################################
 
-ARPTABLES= 
-
 CONFIG_PATH=/etc/shorewall:/usr/share/shorewall
-
-GEOIPDIR=/usr/share/xt_geoip/LE
 
 IPTABLES=
 
@@ -98,15 +77,11 @@ IP=
 
 IPSET=
 
-LOCKFILE=
-
-NFACCT=
-
 MODULESDIR=
 
 PERL=/usr/bin/perl
 
-PATH="/sbin:/bin:/usr/sbin:/usr/bin:/usr/local/bin:/usr/local/sbin"
+PATH=/sbin:/bin:/usr/sbin:/usr/bin:/usr/local/bin:/usr/local/sbin
 
 RESTOREFILE=restore
 
@@ -120,11 +95,11 @@ TC=
 #		D E F A U L T   A C T I O N S / M A C R O S
 ###############################################################################
 
-ACCEPT_DEFAULT=none
-DROP_DEFAULT=Drop
-NFQUEUE_DEFAULT=none
-QUEUE_DEFAULT=none
-REJECT_DEFAULT=Reject
+ACCEPT_DEFAULT="none"
+DROP_DEFAULT="Drop"
+NFQUEUE_DEFAULT="none"
+QUEUE_DEFAULT="none"
+REJECT_DEFAULT="Reject"
 
 ###############################################################################
 #                        R S H / R C P  C O M M A N D S
@@ -149,15 +124,9 @@ ADMINISABSENTMINDED=Yes
 
 AUTO_COMMENT=Yes
 
-AUTOHELPERS=Yes
-
 AUTOMAKE=No
 
-BASIC_FILTERS=No
-
-BLACKLIST="NEW,INVALID"
-
-CHAIN_SCRIPTS=Yes
+{% if shorewall_debian_stretch is defined %}#BLACKLISTNEWONLY=Yes{% else %}BLACKLISTNEWONLY=Yes{% endif %}
 
 CLAMPMSS=No
 
@@ -165,11 +134,7 @@ CLEAR_TC=Yes
 
 COMPLETE=No
 
-DEFER_DNS_RESOLUTION=Yes
-
 DISABLE_IPV6=No
-
-{% if shorewall_docker is defined %}DOCKER={{ shorewall_docker }}{% else %}{% endif %}
 
 DELETE_THEN_ADD=Yes
 
@@ -187,21 +152,16 @@ FASTACCEPT=No
 
 FORWARD_CLEAR_MARK=
 
-HELPERS=
-
-IGNOREUNKNOWNVARIABLES=No
-
 IMPLICIT_CONTINUE=No
 
-INLINE_MATCHES=No
-
-IPSET_WARNINGS=Yes
-
-IP_FORWARDING={% if shorewall_ip_forwarding is defined %}{{ shorewall_ip_forwarding }}{% else %}Yes{% endif %}
+IP_FORWARDING={% if shorewall_ip_forwarding is defined %}{{ shorewall_ip_forwarding }}{% else %}Yes
+{% endif %}
 
 KEEP_RT_TABLES=No
 
 LOAD_HELPERS_ONLY=Yes
+
+{% if shorewall_debian_stretch is defined %}#LEGACY_FASTSTART=No{% else %}LEGACY_FASTSTART=No{% endif %}
 
 MACLIST_TABLE=filter
 
@@ -212,8 +172,6 @@ MANGLE_ENABLED=Yes
 MAPOLDACTIONS=No
 
 MARK_IN_FORWARD_CHAIN=No
-
-MINIUPNPD=No
 
 MODULE_SUFFIX=ko
 
@@ -227,21 +185,13 @@ OPTIMIZE=1
 
 OPTIMIZE_ACCOUNTING=No
 
-REJECT_ACTION=
-
 REQUIRE_INTERFACE=No
 
-RESTART={% if shorewall_restart is defined %}{{ shorewall_restart }}{% else %}reload{% endif %}
-
 RESTORE_DEFAULT_ROUTE=Yes
-
-RESTORE_ROUTEMARKS=Yes
 
 RETAIN_ALIASES=No
 
 ROUTE_FILTER=No
-
-SAVE_ARPTABLES=No
 
 SAVE_IPSETS=No
 
@@ -254,23 +204,12 @@ TC_PRIOMAP="2 3 3 3 2 3 1 1 2 2 2 2 2 2 2 2"
 TRACK_PROVIDERS={% if shorewall_track_providers is defined %}{{ shorewall_track_providers }}{% else %}Yes
 {% endif %}
 
-TRACK_RULES=No
-
 USE_DEFAULT_RT=No
 
-USE_PHYSICAL_NAMES=No
-
-USE_RT_NAMES=No
-
-VERBOSE_MESSAGES=Yes
-
-WARNOLDCAPVERSION=Yes
-
-WORKAROUNDS=No
-
-ZERO_MARKS=No
-
 ZONE2ZONE=2
+
+{% if shorewall_docker is defined %}DOCKER={{ shorewall_docker }}{% else %}
+{% endif %}
 
 ###############################################################################
 #			P A C K E T   D I S P O S I T I O N
@@ -278,13 +217,10 @@ ZONE2ZONE=2
 
 BLACKLIST_DISPOSITION=DROP
 
-INVALID_DISPOSITION=CONTINUE
-
 MACLIST_DISPOSITION=REJECT
 
-RELATED_DISPOSITION={% if shorewall_related_disposition is defined %}{{ shorewall_related_disposition }}{% else %}ACCEPT{% endif %}
-
-RPFILTER_DISPOSITION=DROP
+{% if shorewall_related_disposition is defined %}RELATED_DISPOSITION={{ shorewall_related_disposition }}{% else %}
+{% endif %}
 
 SMURF_DISPOSITION=DROP
 
@@ -292,7 +228,6 @@ SFILTER_DISPOSITION=DROP
 
 TCP_FLAGS_DISPOSITION=DROP
 
-UNTRACKED_DISPOSITION=CONTINUE
 ################################################################################
 #			P A C K E T  M A R K  L A Y O U T
 ################################################################################
@@ -306,3 +241,12 @@ PROVIDER_OFFSET=
 MASK_BITS=
 
 ZONE_BITS=0
+
+################################################################################
+#                            L E G A C Y  O P T I O N
+#                      D O  N O T  D E L E T E  O R  A L T E R
+################################################################################
+
+{% if shorewall_debian_stretch is defined %}#IPSECFILE=zones{% else %}IPSECFILE=zones{% endif %}
+
+#LAST LINE -- DO NOT REMOVE
