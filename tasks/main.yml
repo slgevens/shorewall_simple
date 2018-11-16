@@ -40,12 +40,12 @@
 # Generate service configuration
 - name: Generate Shorewall service conf
   template: src=shorewall.j2 dest={{ shorewall_service_config }} owner=root group=root
-  register: shorewall_service
+  register: shorewall_service_conf
 
 # Reload service
 - name: Restart Shorewall service
   service: name={{ shorewall_service }} state=restarted
-  when: shorewall_zone.changed or shorewall_interface.changed or shorewall_policy.changed or shorewall_rules.changed or shorewall_masq.changed or shorewall_conf.changed or shorewall_service.changed
+  when: shorewall_zone.changed or shorewall_interface.changed or shorewall_policy.changed or shorewall_rules.changed or shorewall_masq.changed or shorewall_conf.changed or 
 
 # Enable Shorewall server
 - name: Start the  Shorewall service
