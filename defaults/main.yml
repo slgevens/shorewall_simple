@@ -29,5 +29,4 @@ shorewall_rules: []
 
 shorewall_masq: []
 
-### Infra by ESC
 shorewall_use_ansible_managed: true

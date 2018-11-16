@@ -45,7 +45,7 @@
 # Reload service
 - name: Restart Shorewall service
   service: name={{ shorewall_service }} state=restarted
-  when: shorewall_zone.changed or shorewall_interface.changed or shorewall_policy.changed or shorewall_rules.changed or shorewall_masq.changed or shorewall_conf.changed or 
+  when: shorewall_zone.changed or shorewall_interface.changed or shorewall_policy.changed or shorewall_rules.changed or shorewall_masq.changed or shorewall_conf.changed or shorewall_service_conf.changed
 
 # Enable Shorewall server
 - name: Start the  Shorewall service
