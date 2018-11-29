@@ -27,7 +27,7 @@
 
 - name: Generate rules
   template: src=rules.j2 dest={{ shorewall_rules_file }}
-  register: shorewall_rules
+  register: shorewall_rules_conf
 
 - name: Generate masq
   template: src=masq.j2 dest={{ shorewall_masq_file }}
@@ -45,7 +45,7 @@
 # Reload service
 - name: Restart Shorewall service
   service: name={{ shorewall_service }} state=restarted
-  when: shorewall_zone.changed or shorewall_interface.changed or shorewall_policy.changed or shorewall_rules.changed or shorewall_masq.changed or shorewall_conf.changed or shorewall_service_conf.changed
+  when: shorewall_zone.changed or shorewall_interface.changed or shorewall_policy.changed or shorewall_rules_conf.changed or shorewall_masq.changed or shorewall_conf.changed or shorewall_service_conf.changed
 
 # Enable Shorewall server
 - name: Start the  Shorewall service
