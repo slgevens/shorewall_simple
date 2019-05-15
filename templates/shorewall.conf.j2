@@ -113,10 +113,15 @@ TC={% if shorewall_tc is defined %}{{ shorewall_tc }}{% else %}{% endif %}
 ###############################################################################
 
 ACCEPT_DEFAULT={% if shorewall_accept_default is defined %}"{{ shorewall_accept_default }}"{% else %}"none"{% endif %}
+
 BLACKLIST_DEFAULT={% if shorewall_blacklist_default is defined %}"{{ shorewall_blacklist_default }}"{% else %}"Broadcast(DROP),Multicast(DROP),dropNotSyn:$LOG_LEVEL,dropInvalid:$LOG_LEVEL,DropDNSrep:$LOG_LEVEL"{% endif %}
+
 DROP_DEFAULT={% if shorewall_drop_default is defined %}"{{ shorewall_drop_default }}"{% else %}"Broadcast(DROP),Multicast(DROP)"{% endif %}
+
 NFQUEUE_DEFAULT={% if shorewall_nfqueue_default is defined %}"{{ shorewall_nfqueue_default }}"{% else %}"none"{% endif %}
+
 QUEUE_DEFAULT={% if shorewall_queue_default is defined %}"{{ shorewall_queue_default }}"{% else %}"none"{% endif %}
+
 REJECT_DEFAULT={% if shorewall_reject_default is defined %}"{{ shorewall_reject_default }}"{% else %}"Broadcast(DROP),Multicast(DROP)"{% endif %}
 
 ###############################################################################
@@ -124,6 +129,7 @@ REJECT_DEFAULT={% if shorewall_reject_default is defined %}"{{ shorewall_reject_
 ###############################################################################
 
 RCP_COMMAND={% if shorewall_rcp_command is defined %}'{{ shorewall_rcp_command }}'{% else %}'scp ${files} ${root}@${system}:${destination}'{% endif %}
+
 RSH_COMMAND={% if shorewall_rsh_command is defined %}'{{ shorewall_rsh_command }}'{% else %}'ssh ${root}@${system} ${command}'{% endif %}
 
 ###############################################################################
