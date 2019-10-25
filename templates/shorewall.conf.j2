@@ -48,6 +48,8 @@ LOG_MARTIANS={% if shorewall_log_martians is defined %}{{ shorewall_log_martians
 
 LOG_VERBOSITY={% if shorewall_log_verbosity is defined %}{{ shorewall_log_verbosity }}{% else %}2{% endif %}
 
+LOG_ZONE={% if shorewall_log_zone is defined %}{{shorewall_log_zone}}{% else %}Both{%endif%}
+
 LOGALLNEW={% if shorewall_logallnew is defined %}{{ shorewall_logallnew }}{% else %}{% endif %}
 
 LOGFILE={% if shorewall_logfile is defined %}{{ shorewall_logfile }}{% else %}/var/log/messages{% endif %}
