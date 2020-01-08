@@ -20,6 +20,11 @@ galaxy_info:
       - quantal
       - raring
       - saucy
+   - name: Debian
+     versions:
+      - jessie
+      - stretch
+      - buster
   categories:
    - system
    - networking
