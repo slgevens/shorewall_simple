@@ -25,8 +25,4 @@ shorewall_policies:
   policy: "DROP"
   log_level: "info"
 
-shorewall_rules: []
-
-shorewall_masq: []
-
 shorewall_use_ansible_managed: true

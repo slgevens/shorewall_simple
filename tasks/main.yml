@@ -28,6 +28,7 @@
 - name: Generate rules
   template: src=rules.j2 dest={{ shorewall_rules_file }}
   register: shorewall_rules_conf_tmp
+  when: shorewall_rules is defined
 
 - name: Generate masq
   template: src=masq.j2 dest={{ shorewall_masq_file }}
