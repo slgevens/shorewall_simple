@@ -7,14 +7,6 @@ unable to recover without physical access to the machine._
 
 This role installs and configures Shorewall for a simple, single network interface (can be a bond, of course) server.
 
-ADDS
-----
--(31/12/15)
-masq options 
-
--(26/12/15)
-IP_FORWARDING=Yes
-
 Requirements
 ------------
 
