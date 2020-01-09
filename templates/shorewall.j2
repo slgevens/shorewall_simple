@@ -1,12 +1,12 @@
-{% if shorewall_use_ansible_managed %}# {{ ansible_managed }}{% endif %}
-
+{% if shorewall_use_ansible_managed %}# {{ ansible_managed }}
+{% endif %}
 
 # Do not edit manually
 
 # prevent startup with default configuration
-# set the following varible to 1 in order to allow Shorewall to start
-
-startup={% if shorewall_startup is defined %}{{ shorewall_startup }}{% else %}0{% endif %}
+# set the following variable to 1 in order to allow Shorewall to start
+startup={% if shorewall_startup is defined %}{{ shorewall_startup }}{% else %}0
+{% endif %}
 
 # If your Shorewall configuration requires detection of the ip address of a ppp
 # interface, you must list such interfaces in "wait_interface" to get Shorewall
@@ -19,33 +19,44 @@ startup={% if shorewall_startup is defined %}{{ shorewall_startup }}{% else %}0{
 #    wait_interface="ppp0 ppp1"
 # or, if you have defined  in /etc/shorewall/params
 #    wait_interface=
-{% if shorewall_wait_interface is defined %}wait_interface="{{ shorewall_wait_interface }}"{% endif %}
+{% if shorewall_wait_interface is defined %}wait_interface="{{ shorewall_wait_interface }}"
+{% endif %}
 
 #
 # Global start/restart/reload/stop options
 #
-OPTIONS="{% if shorewall_options is defined %}{{ shorewall_options }}{% endif %}"
+OPTIONS={% if shorewall_options is defined %}"{{ shorewall_options }}"
+{% endif %}
 
 #
 # Start options
 #
-STARTOPTIONS="{% if shorewall_startoptions is defined %}{{ shorewall_startoptions }}{% endif %}"
-RELOADOPTIONS="{% if shorewall_reloadoptions is defined %}{{ shorewall_reloadoptions }}{% endif %}"
-STOPOPTIONS="{% if shorewall_stopoptions is defined %}{{ shorewall_stopoptions }}{% endif %}"
+STARTOPTIONS={% if shorewall_startoptions is defined %}"{{ shorewall_startoptions }}"
+{% endif %}
+
+RELOADOPTIONS={% if shorewall_reloadoptions is defined %}"{{ shorewall_reloadoptions }}"
+{% endif %}
+
+STOPOPTIONS={% if shorewall_stopoptions is defined %}"{{ shorewall_stopoptions }}"
+{% endif %}
+
 #
 # Restart options
 #
-RESTARTOPTIONS="{% if shorewall_restartoptions is defined %}{{ shorewall_restartoptions }}{% endif %}"
+RESTARTOPTIONS={% if shorewall_restartoptions is defined %}"{{ shorewall_restartoptions }}"
+{% endif %}
 
 #
 # Init Log -- if /dev/null, use the STARTUP_LOG defined in shorewall.conf
 #
-INITLOG={% if shorewall_initlog is defined %}{{ shorewall_initlog }}{% else %}/dev/null{% endif %}
+INITLOG={% if shorewall_initlog is defined %}{{ shorewall_initlog }}{% else %}/dev/null
+{% endif %}
 
 #
 # Set this to 1 to cause '/etc/init.d/shorewall stop' to place the firewall in
 # a safe state rather than to open it
 #
-SAFESTOP={% if shorewall_safestop is defined %}{{ shorewall_safestop }}{% else %}0{% endif %}
+SAFESTOP={% if shorewall_safestop is defined %}{{ shorewall_safestop }}{% else %}0
+{% endif %}
 
 # EOF

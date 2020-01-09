@@ -12,300 +12,423 @@
 #		       S T A R T U P   E N A B L E D
 ###############################################################################
 
-STARTUP_ENABLED={% if shorewall_enabled is defined %}{{ shorewall_enabled }}{% else %}No{% endif %}
+STARTUP_ENABLED={% if shorewall_enabled is defined %}{{ shorewall_enabled }}{% else %}No
+{% endif %}
 
 ###############################################################################
 #			     V E R B O S I T Y
 ###############################################################################
 
-VERBOSITY={% if shorewall_verbosity is defined %}{{ shorewall_verbosity }}{% else %}1{% endif %}
+VERBOSITY={% if shorewall_verbosity is defined %}{{ shorewall_verbosity }}{% else %}1
+{% endif %}
 
 ###############################################################################
 #			        P A G E R
 ###############################################################################
 
-PAGER={% if shorewall_pager is defined %}{{ shorewall_pager }}{% else %}{% endif %}
+PAGER={% if shorewall_pager is defined %}{{ shorewall_pager }}{% else %}
+{% endif %}
 
 ###############################################################################
 #			     F I R E W A L L
 ###############################################################################
 
-FIREWALL={% if shorewall_firewall is defined %}{{ shorewall_firewall }}{% else %}{% endif %}
+FIREWALL={% if shorewall_firewall is defined %}{{ shorewall_firewall }}{% else %}
+{% endif %}
 
 ###############################################################################
 #			       L O G G I N G
 ###############################################################################
 
-LOG_LEVEL={% if shorewall_log_level is defined %}"{{ shorewall_log_level }}"{% else %}"info"{% endif %}
+LOG_LEVEL={% if shorewall_log_level is defined %}"{{ shorewall_log_level }}"{% else %}"info"
+{% endif %}
 
-BLACKLIST_LOG_LEVEL={% if shorewall_blacklist_log_level is defined %}{{ shorewall_blacklist_log_level }}{% else %}{% endif %}
+BLACKLIST_LOG_LEVEL={% if shorewall_blacklist_log_level is defined %}{{ shorewall_blacklist_log_level }}{% else %}
+{% endif %}
 
-INVALID_LOG_LEVEL={% if shorewall_invalid_log_level is defined %}{{ shorewall_invalid_log_level }}{% else %}{% endif %}
+INVALID_LOG_LEVEL={% if shorewall_invalid_log_level is defined %}{{ shorewall_invalid_log_level }}{% else %}
+{% endif %}
 
-LOG_BACKEND={% if shorewall_log_backend is defined %}{{ shorewall_log_backend }}{% else %}{% endif %}
+LOG_BACKEND={% if shorewall_log_backend is defined %}{{ shorewall_log_backend }}{% else %}
+{% endif %}
 
-LOG_MARTIANS={% if shorewall_log_martians is defined %}{{ shorewall_log_martians }}{% else %}No{% endif %}
+LOG_MARTIANS={% if shorewall_log_martians is defined %}{{ shorewall_log_martians }}{% else %}No
+{% endif %}
 
-LOG_VERBOSITY={% if shorewall_log_verbosity is defined %}{{ shorewall_log_verbosity }}{% else %}2{% endif %}
+LOG_VERBOSITY={% if shorewall_log_verbosity is defined %}{{ shorewall_log_verbosity }}{% else %}2
+{% endif %}
 
 LOG_ZONE={% if shorewall_log_zone is defined %}{{shorewall_log_zone}}{% else %}Both{%endif%}
 
-LOGALLNEW={% if shorewall_logallnew is defined %}{{ shorewall_logallnew }}{% else %}{% endif %}
+LOGALLNEW={% if shorewall_logallnew is defined %}{{ shorewall_logallnew }}{% else %}
+{% endif %}
 
-LOGFILE={% if shorewall_logfile is defined %}{{ shorewall_logfile }}{% else %}/var/log/messages{% endif %}
+LOGFILE={% if shorewall_logfile is defined %}{{ shorewall_logfile }}{% else %}/var/log/messages
+{% endif %}
 
-LOGFORMAT={% if shorewall_logformat is defined %}"{{ shorewall_logformat }}"{% else %}"%s %s "{% endif %}
+LOGFORMAT={% if shorewall_logformat is defined %}"{{ shorewall_logformat }}"{% else %}"%s %s "
+{% endif %}
 
-LOGTAGONLY={% if shorewall_logtagonly is defined %}{{ shorewall_logtagonly }}{% else %}No{% endif %}
+LOGTAGONLY={% if shorewall_logtagonly is defined %}{{ shorewall_logtagonly }}{% else %}No
+{% endif %}
 
-LOGLIMIT={% if shorewall_loglimit is defined %}"{{ shorewall_loglimit }}"{% else %}"s:1/sec:10"{% endif %}
+LOGLIMIT={% if shorewall_loglimit is defined %}"{{ shorewall_loglimit }}"{% else %}"s:1/sec:10"
+{% endif %}
 
-MACLIST_LOG_LEVEL={% if shorewall_maclist_log_level is defined %}"{{ shorewall_maclist_log_level }}"{% else %}"$LOG_LEVEL"{% endif %}
+MACLIST_LOG_LEVEL={% if shorewall_maclist_log_level is defined %}"{{ shorewall_maclist_log_level }}"{% else %}"$LOG_LEVEL"
+{% endif %}
 
-RELATED_LOG_LEVEL={% if shorewall_related_log_level is defined %}{{ shorewall_related_log_level }}{% else %}{% endif %}
+RELATED_LOG_LEVEL={% if shorewall_related_log_level is defined %}{{ shorewall_related_log_level }}{% else %}
+{% endif %}
 
-RPFILTER_LOG_LEVEL={% if shorewall_rpfilter_log_level is defined %}"{{ shorewall_rpfilter_log_level }}"{% else %}"$LOG_LEVEL"{% endif %}
+RPFILTER_LOG_LEVEL={% if shorewall_rpfilter_log_level is defined %}"{{ shorewall_rpfilter_log_level }}"{% else %}"$LOG_LEVEL"
+{% endif %}
 
-SFILTER_LOG_LEVEL={% if shorewall_sfilter_log_level is defined %}"{{ shorewall_sfilter_log_level }}"{% else %}"$LOG_LEVEL"{% endif %}
+SFILTER_LOG_LEVEL={% if shorewall_sfilter_log_level is defined %}"{{ shorewall_sfilter_log_level }}"{% else %}"$LOG_LEVEL"
+{% endif %}
 
-SMURF_LOG_LEVEL={% if shorewall_smurf_log_level is defined %}"{{ shorewall_smurf_log_level }}"{% else %}"$LOG_LEVEL"{% endif %}
+SMURF_LOG_LEVEL={% if shorewall_smurf_log_level is defined %}"{{ shorewall_smurf_log_level }}"{% else %}"$LOG_LEVEL"
+{% endif %}
 
-STARTUP_LOG={% if shorewall_startup_log is defined %}{{ shorewall_startup_log }}{% else %}/var/log/shorewall-init.log{% endif %}
+STARTUP_LOG={% if shorewall_startup_log is defined %}{{ shorewall_startup_log }}{% else %}/var/log/shorewall-init.log
+{% endif %}
 
-TCP_FLAGS_LOG_LEVEL={% if shorewall_tcp_flags_log_level is defined %}"{{ shorewall_tcp_flags_log_level }}"{% else %}"$LOG_LEVEL"{% endif %}
+TCP_FLAGS_LOG_LEVEL={% if shorewall_tcp_flags_log_level is defined %}"{{ shorewall_tcp_flags_log_level }}"{% else %}"$LOG_LEVEL"
+{% endif %}
 
-UNTRACKED_LOG_LEVEL={% if shorewall_untracked_log_level is defined %}{{ shorewall_untracked_log_level }}{% else %}{% endif %}
+UNTRACKED_LOG_LEVEL={% if shorewall_untracked_log_level is defined %}{{ shorewall_untracked_log_level }}{% else %}
+{% endif %}
 
 ###############################################################################
 #	L O C A T I O N	  O F	F I L E S   A N D   D I R E C T O R I E S
 ###############################################################################
 
-ARPTABLES={% if shorewall_arptables is defined %}{{ shorewall_arptables }}{% else %}{% endif %}
+ARPTABLES={% if shorewall_arptables is defined %}{{ shorewall_arptables }}{% else %}
+{% endif %}
 
-CONFIG_PATH={% if shorewall_config_path is defined %}"{{ shorewall_config_path }}"{% else %}":${CONFDIR}/shorewall:${SHAREDIR}/shorewall"{% endif %}
+CONFIG_PATH={% if shorewall_config_path is defined %}"{{ shorewall_config_path }}"{% else %}":${CONFDIR}/shorewall:${SHAREDIR}/shorewall"
+{% endif %}
 
-GEOIPDIR={% if shorewall_geoipdir is defined %}{{ shorewall_geoipdir }}{% else %}/usr/share/xt_geoip/LE{% endif %}
+GEOIPDIR={% if shorewall_geoipdir is defined %}{{ shorewall_geoipdir }}{% else %}/usr/share/xt_geoip/LE
+{% endif %}
 
-IPTABLES={% if shorewall_iptables is defined %}{{ shorewall_iptables }}{% else %}{% endif %}
+IPTABLES={% if shorewall_iptables is defined %}{{ shorewall_iptables }}{% else %}
+{% endif %}
 
-IP={% if shorewall_ip is defined %}{{ shorewall_ip }}{% else %}{% endif %}
+IP={% if shorewall_ip is defined %}{{ shorewall_ip }}{% else %}
+{% endif %}
 
-IPSET={% if shorewall_ipset is defined %}{{ shorewall_ipset }}{% else %}{% endif %}
+IPSET={% if shorewall_ipset is defined %}{{ shorewall_ipset }}{% else %}
+{% endif %}
 
-LOCKFILE={% if shorewall_lockfile is defined %}{{ shorewall_lockfile }}{% else %}{% endif %}
+LOCKFILE={% if shorewall_lockfile is defined %}{{ shorewall_lockfile }}{% else %}
+{% endif %}
 
-MODULESDIR={% if shorewall_modulesdir is defined %}{{ shorewall_modulesdir }}{% else %}{% endif %}
+MODULESDIR={% if shorewall_modulesdir is defined %}{{ shorewall_modulesdir }}{% else %}
+{% endif %}
 
-NFACCT={% if shorewall_nfacct is defined %}{{ shorewall_nfacct }}{% else %}{% endif %}
+NFACCT={% if shorewall_nfacct is defined %}{{ shorewall_nfacct }}{% else %}
+{% endif %}
 
-PATH={% if shorewall_path is defined %}"{{ shorewall_path }}"{% else %}"/sbin:/bin:/usr/sbin:/usr/bin:/usr/local/bin:/usr/local/sbin"{% endif %}
+PATH={% if shorewall_path is defined %}"{{ shorewall_path }}"{% else %}"/sbin:/bin:/usr/sbin:/usr/bin:/usr/local/bin:/usr/local/sbin"
+{% endif %}
 
-PERL={% if shorewall_perl is defined %}{{ shorewall_perl }}{% else %}/usr/bin/perl{% endif %}
+PERL={% if shorewall_perl is defined %}{{ shorewall_perl }}{% else %}/usr/bin/perl
+{% endif %}
 
-RESTOREFILE={% if shorewall_restorefile is defined %}{{ shorewall_restorefile }}{% else %}restore{% endif %}
+RESTOREFILE={% if shorewall_restorefile is defined %}{{ shorewall_restorefile }}{% else %}restore
+{% endif %}
 
-SHOREWALL_SHELL={% if shorewall_shell is defined %}{{ shorewall_shell }}{% else %}/bin/sh{% endif %}
+SHOREWALL_SHELL={% if shorewall_shell is defined %}{{ shorewall_shell }}{% else %}/bin/sh
+{% endif %}
 
-SUBSYSLOCK={% if shorewall_subsyslock is defined %}"{{ shorewall_subsyslock }}"{% else %}""{% endif %}
+SUBSYSLOCK={% if shorewall_subsyslock is defined %}"{{ shorewall_subsyslock }}"{% else %}""
+{% endif %}
 
-TC={% if shorewall_tc is defined %}{{ shorewall_tc }}{% else %}{% endif %}
+TC={% if shorewall_tc is defined %}{{ shorewall_tc }}{% else %}
+{% endif %}
 
 ###############################################################################
 #		D E F A U L T   A C T I O N S / M A C R O S
 ###############################################################################
 
-ACCEPT_DEFAULT={% if shorewall_accept_default is defined %}"{{ shorewall_accept_default }}"{% else %}"none"{% endif %}
+ACCEPT_DEFAULT={% if shorewall_accept_default is defined %}"{{ shorewall_accept_default }}"{% else %}"none"
+{% endif %}
 
-BLACKLIST_DEFAULT={% if shorewall_blacklist_default is defined %}"{{ shorewall_blacklist_default }}"{% else %}"Broadcast(DROP),Multicast(DROP),dropNotSyn:$LOG_LEVEL,dropInvalid:$LOG_LEVEL,DropDNSrep:$LOG_LEVEL"{% endif %}
+BLACKLIST_DEFAULT={% if shorewall_blacklist_default is defined %}"{{ shorewall_blacklist_default }}"{% else %}"Broadcast(DROP),Multicast(DROP),dropNotSyn:$LOG_LEVEL,dropInvalid:$LOG_LEVEL,DropDNSrep:$LOG_LEVEL"
+{% endif %}
 
-DROP_DEFAULT={% if shorewall_drop_default is defined %}"{{ shorewall_drop_default }}"{% else %}"Broadcast(DROP),Multicast(DROP)"{% endif %}
+DROP_DEFAULT={% if shorewall_drop_default is defined %}"{{ shorewall_drop_default }}"{% else %}"Broadcast(DROP),Multicast(DROP)"
+{% endif %}
 
-NFQUEUE_DEFAULT={% if shorewall_nfqueue_default is defined %}"{{ shorewall_nfqueue_default }}"{% else %}"none"{% endif %}
+NFQUEUE_DEFAULT={% if shorewall_nfqueue_default is defined %}"{{ shorewall_nfqueue_default }}"{% else %}"none"
+{% endif %}
 
-QUEUE_DEFAULT={% if shorewall_queue_default is defined %}"{{ shorewall_queue_default }}"{% else %}"none"{% endif %}
+QUEUE_DEFAULT={% if shorewall_queue_default is defined %}"{{ shorewall_queue_default }}"{% else %}"none"
+{% endif %}
 
-REJECT_DEFAULT={% if shorewall_reject_default is defined %}"{{ shorewall_reject_default }}"{% else %}"Broadcast(DROP),Multicast(DROP)"{% endif %}
+REJECT_DEFAULT={% if shorewall_reject_default is defined %}"{{ shorewall_reject_default }}"{% else %}"Broadcast(DROP),Multicast(DROP)"
+{% endif %}
 
 ###############################################################################
 #			 R S H / R C P	C O M M A N D S
 ###############################################################################
 
-RCP_COMMAND={% if shorewall_rcp_command is defined %}'{{ shorewall_rcp_command }}'{% else %}'scp ${files} ${root}@${system}:${destination}'{% endif %}
+RCP_COMMAND={% if shorewall_rcp_command is defined %}'{{ shorewall_rcp_command }}'{% else %}'scp ${files} ${root}@${system}:${destination}'
+{% endif %}
 
-RSH_COMMAND={% if shorewall_rsh_command is defined %}'{{ shorewall_rsh_command }}'{% else %}'ssh ${root}@${system} ${command}'{% endif %}
+RSH_COMMAND={% if shorewall_rsh_command is defined %}'{{ shorewall_rsh_command }}'{% else %}'ssh ${root}@${system} ${command}'
+{% endif %}
 
 ###############################################################################
 #			F I R E W A L L	  O P T I O N S
 ###############################################################################
 
-ACCOUNTING={% if shorewall_accounting is defined %}{{ shorewall_accounting }}{% else %}Yes{% endif %}
+ACCOUNTING={% if shorewall_accounting is defined %}{{ shorewall_accounting }}{% else %}Yes
+{% endif %}
 
-ACCOUNTING_TABLE={% if shorewall_accounting_table is defined %}{{ shorewall_accounting_table }}{% else %}filter{% endif %}
+ACCOUNTING_TABLE={% if shorewall_accounting_table is defined %}{{ shorewall_accounting_table }}{% else %}filter
+{% endif %}
 
-ADD_IP_ALIASES={% if shorewall_add_ip_aliases is defined %}{{ shorewall_add_ip_aliases }}{% else %}No{% endif %}
+ADD_IP_ALIASES={% if shorewall_add_ip_aliases is defined %}{{ shorewall_add_ip_aliases }}{% else %}No
+{% endif %}
 
-ADD_SNAT_ALIASES={% if shorewall is defined %}{{ shorewall }}{% else %}No{% endif %}
+ADD_SNAT_ALIASES={% if shorewall is defined %}{{ shorewall }}{% else %}No
+{% endif %}
 
-ADMINISABSENTMINDED={% if shorewall_adminisabsentminded is defined %}{{ shorewall_adminisabsentminded }}{% else %}Yes{% endif %}
+ADMINISABSENTMINDED={% if shorewall_adminisabsentminded is defined %}{{ shorewall_adminisabsentminded }}{% else %}Yes
+{% endif %}
 
-AUTOCOMMENT={% if shorewall_autocomment is defined %}{{ shorewall_autocomment }}{% else %}Yes{% endif %}
+AUTOCOMMENT={% if shorewall_autocomment is defined %}{{ shorewall_autocomment }}{% else %}Yes
+{% endif %}
 
-AUTOHELPERS={% if shorewall_autohelpers is defined %}{{ shorewall_autohelpers }}{% else %}Yes{% endif %}
+AUTOHELPERS={% if shorewall_autohelpers is defined %}{{ shorewall_autohelpers }}{% else %}Yes
+{% endif %}
 
-AUTOMAKE={% if shorewall_automake is defined %}{{ shorewall_automake }}{% else %}Yes{% endif %}
+AUTOMAKE={% if shorewall_automake is defined %}{{ shorewall_automake }}{% else %}Yes
+{% endif %}
 
-BALANCE_PROVIDERS={% if shorewall_balance_providers is defined %}{{ shorewall_balance_providers }}{% else %}No{% endif %}
+BALANCE_PROVIDERS={% if shorewall_balance_providers is defined %}{{ shorewall_balance_providers }}{% else %}No
+{% endif %}
 
-BASIC_FILTERS={% if shorewall_basic_filters is defined %}{{ shorewall_basic_filters }}{% else %}No{% endif %}
+BASIC_FILTERS={% if shorewall_basic_filters is defined %}{{ shorewall_basic_filters }}{% else %}No
+{% endif %}
 
-BLACKLIST={% if shorewall_blacklist is defined %}"{{ shorewall_blacklist }}"{% else %}"NEW,INVALID,UNTRACKED"{% endif %}
+BLACKLIST={% if shorewall_blacklist is defined %}"{{ shorewall_blacklist }}"{% else %}"NEW,INVALID,UNTRACKED"
+{% endif %}
 
-CLAMPMSS={% if shorewall_clampmss is defined %}{{ shorewall_clampmss }}{% else %}No{% endif %}
+CLAMPMSS={% if shorewall_clampmss is defined %}{{ shorewall_clampmss }}{% else %}No
+{% endif %}
 
-CLEAR_TC={% if shorewall_clear_tc is defined %}{{ shorewall_clear_tc }}{% else %}Yes{% endif %}
+CLEAR_TC={% if shorewall_clear_tc is defined %}{{ shorewall_clear_tc }}{% else %}Yes
+{% endif %}
 
-COMPLETE={% if shorewall_complete is defined %}{{ shorewall_complete }}{% else %}No{% endif %}
+COMPLETE={% if shorewall_complete is defined %}{{ shorewall_complete }}{% else %}No
+{% endif %}
 
-DEFER_DNS_RESOLUTION={% if shorewall_defer_dns_resolution is defined %}{{ shorewall_defer_dns_resolution }}{% else %}Yes{% endif %}
+DEFER_DNS_RESOLUTION={% if shorewall_defer_dns_resolution is defined %}{{ shorewall_defer_dns_resolution }}{% else %}Yes
+{% endif %}
 
-DELETE_THEN_ADD={% if shorewall_delete_then_add is defined %}{{ shorewall_delete_then_add }}{% else %}Yes{% endif %}
+DELETE_THEN_ADD={% if shorewall_delete_then_add is defined %}{{ shorewall_delete_then_add }}{% else %}Yes
+{% endif %}
 
-DETECT_DNAT_IPADDRS={% if shorewall_detect_dnat_ipaddrs is defined %}{{ shorewall_detect_dnat_ipaddrs }}{% else %}No{% endif %}
+DETECT_DNAT_IPADDRS={% if shorewall_detect_dnat_ipaddrs is defined %}{{ shorewall_detect_dnat_ipaddrs }}{% else %}No
+{% endif %}
 
-DISABLE_IPV6={% if shorewall_disable_ipv6 is defined %}{{ shorewall_disable_ipv6 }}{% else %}No{% endif %}
+DISABLE_IPV6={% if shorewall_disable_ipv6 is defined %}{{ shorewall_disable_ipv6 }}{% else %}No
+{% endif %}
 
-DOCKER={% if shorewall_docker is defined %}{{ shorewall_docker }}{% else %}No{% endif %}
+DOCKER={% if shorewall_docker is defined %}{{ shorewall_docker }}{% else %}No
+{% endif %}
 
-DONT_LOAD={% if shorewall_dont_load is defined %}{{ shorewall_dont_load }}{% else %}{% endif %}
+DONT_LOAD={% if shorewall_dont_load is defined %}{{ shorewall_dont_load }}{% else %}
+{% endif %}
 
-DYNAMIC_BLACKLIST={% if shorewall_dynamic_blacklist is defined %}{{ shorewall_dynamic_blacklist }}{% else %}Yes{% endif %}
+DYNAMIC_BLACKLIST={% if shorewall_dynamic_blacklist is defined %}{{ shorewall_dynamic_blacklist }}{% else %}Yes
+{% endif %}
 
-EXPAND_POLICIES={% if shorewall_expand_policies is defined %}{{ shorewall_expand_policies }}{% else %}Yes{% endif %}
+EXPAND_POLICIES={% if shorewall_expand_policies is defined %}{{ shorewall_expand_policies }}{% else %}Yes
+{% endif %}
 
-EXPORTMODULES={% if shorewall_exportmodules is defined %}{{ shorewall_exportmodules }}{% else %}Yes{% endif %}
+EXPORTMODULES={% if shorewall_exportmodules is defined %}{{ shorewall_exportmodules }}{% else %}Yes
+{% endif %}
 
-FASTACCEPT={% if shorewall_fastaccept is defined %}{{ shorewall_fastaccept }}{% else %}No{% endif %}
+FASTACCEPT={% if shorewall_fastaccept is defined %}{{ shorewall_fastaccept }}{% else %}No
+{% endif %}
 
-FORWARD_CLEAR_MARK={% if shorewall_forward_clear_mark is defined %}{{ shorewall_forward_clear_mark }}{% else %}{% endif %}
+FORWARD_CLEAR_MARK={% if shorewall_forward_clear_mark is defined %}{{ shorewall_forward_clear_mark }}{% else %}
+{% endif %}
 
-HELPERS={% if shorewall_helpers is defined %}{{ shorewall_helpers }}{% else %}{% endif %}
+HELPERS={% if shorewall_helpers is defined %}{{ shorewall_helpers }}{% else %}
+{% endif %}
 
-IGNOREUNKNOWNVARIABLES={% if shorewall_ignoreunknownvariables is defined %}{{ shorewall_ignoreunknownvariables }}{% else %}No{% endif %}
+IGNOREUNKNOWNVARIABLES={% if shorewall_ignoreunknownvariables is defined %}{{ shorewall_ignoreunknownvariables }}{% else %}No
+{% endif %}
 
-IMPLICIT_CONTINUE={% if shorewall_implicit_continue is defined %}{{ shorewall_implicit_continue }}{% else %}No{% endif %}
+IMPLICIT_CONTINUE={% if shorewall_implicit_continue is defined %}{{ shorewall_implicit_continue }}{% else %}No
+{% endif %}
 
-INLINE_MATCHES={% if shorewall_inline_matches is defined %}{{ shorewall_inline_matches }}{% else %}No{% endif %}
+IPSET_WARNINGS={% if shorewall_ipset_warnings is defined %}{{ shorewall_ipset_warnings }}{% else %}Yes
+{% endif %}
 
-IPSET_WARNINGS={% if shorewall_ipset_warnings is defined %}{{ shorewall_ipset_warnings }}{% else %}Yes{% endif %}
+IP_FORWARDING={% if shorewall_ip_forwarding is defined %}{{ shorewall_ip_forwarding }}{% else %}Keep
+{% endif %}
 
-IP_FORWARDING={% if shorewall_ip_forwarding is defined %}{{ shorewall_ip_forwarding }}{% else %}Keep{% endif %}
+KEEP_RT_TABLES={% if shorewall_keep_rt_tables is defined %}{{ shorewall_keep_rt_tables }}{% else %}No
+{% endif %}
 
-KEEP_RT_TABLES={% if shorewall_keep_rt_tables is defined %}{{ shorewall_keep_rt_tables }}{% else %}No{% endif %}
+MACLIST_TABLE={% if shorewall_maclist_table is defined %}{{ shorewall_maclist_table }}{% else %}filter
+{% endif %}
 
-LOAD_HELPERS_ONLY={% if shorewall_load_helpers_only is defined %}{{ shorewall_load_helpers_only }}{% else %}Yes{% endif %}
+MACLIST_TTL={% if shorewall_maclist_ttl is defined %}{{ shorewall_maclist_ttl }}{% else %}
+{% endif %}
 
-MACLIST_TABLE={% if shorewall_maclist_table is defined %}{{ shorewall_maclist_table }}{% else %}filter{% endif %}
+MANGLE_ENABLED={% if shorewall_mangle_enabled is defined %}{{ shorewall_mangle_enabled }}{% else %}Yes
+{% endif %}
 
-MACLIST_TTL={% if shorewall_maclist_ttl is defined %}{{ shorewall_maclist_ttl }}{% else %}{% endif %}
+MARK_IN_FORWARD_CHAIN={% if shorewall_mark_in_forward_chain is defined %}{{ shorewall_mark_in_forward_chain }}{% else %}No
+{% endif %}
 
-MANGLE_ENABLED={% if shorewall_mangle_enabled is defined %}{{ shorewall_mangle_enabled }}{% else %}Yes{% endif %}
+MINIUPNPD={% if shorewall_miniupnpd is defined %}{{ shorewall_miniupnpd }}{% else %}No
+{% endif %}
 
-MAPOLDACTIONS={% if shorewall_mapoldactions is defined %}{{ shorewall_mapoldactions }}{% else %}No{% endif %}
+MULTICAST={% if shorewall_multicast is defined %}{{ shorewall_multicast }}{% else %}No
+{% endif %}
 
-MARK_IN_FORWARD_CHAIN={% if shorewall_mark_in_forward_chain is defined %}{{ shorewall_mark_in_forward_chain }}{% else %}No{% endif %}
+MUTEX_TIMEOUT={% if shorewall_mutex_timeout is defined %}{{ shorewall_mutex_timeout }}{% else %}60
+{% endif %}
 
-MINIUPNPD={% if shorewall_miniupnpd is defined %}{{ shorewall_miniupnpd }}{% else %}No{% endif %}
+NULL_ROUTE_RFC1918={% if shorewall_null_route_rfc1918 is defined %}{{ shorewall_null_route_rfc1918 }}{% else %}No
+{% endif %}
 
-MULTICAST={% if shorewall_multicast is defined %}{{ shorewall_multicast }}{% else %}No{% endif %}
+OPTIMIZE={% if shorewall_optimize is defined %}{{ shorewall_optimize }}{% else %}All
+{% endif %}
 
-MUTEX_TIMEOUT={% if shorewall_mutex_timeout is defined %}{{ shorewall_mutex_timeout }}{% else %}60{% endif %}
+OPTIMIZE_ACCOUNTING={% if shorewall_optimize_accounting is defined %}{{ shorewall_optimize_accounting }}{% else %}No
+{% endif %}
 
-NULL_ROUTE_RFC1918={% if shorewall_null_route_rfc1918 is defined %}{{ shorewall_null_route_rfc1918 }}{% else %}No{% endif %}
+PERL_HASH_SEED={% if shorewall_perl_hash_seed is defined %}{{ shorewall_perl_hash_seed }}{% else %}0
+{% endif %}
 
-OPTIMIZE={% if shorewall_optimize is defined %}{{ shorewall_optimize }}{% else %}All{% endif %}
+REJECT_ACTION={% if shorewall_reject_action is defined %}{{ shorewall_reject_action }}{% else %}
+{% endif %}
 
-OPTIMIZE_ACCOUNTING={% if shorewall_optimize_accounting is defined %}{{ shorewall_optimize_accounting }}{% else %}No{% endif %}
+RENAME_COMBINED={% if shorewall_rename_combined is defined %}{{ shorewall_rename_combined }}{% else %}Yes
+{% endif %}
 
-PERL_HASH_SEED={% if shorewall_perl_hash_seed is defined %}{{ shorewall_perl_hash_seed }}{% else %}0{% endif %}
+REQUIRE_INTERFACE={% if shorewall_require_interface is defined %}{{ shorewall_require_interface }}{% else %}No
+{% endif %}
 
-REJECT_ACTION={% if shorewall_reject_action is defined %}{{ shorewall_reject_action }}{% else %}{% endif %}
+RESTART=restart{% if shorewall_restart is defined %}{{ shorewall_restart }}{% else %}
+{% endif %}
 
-REQUIRE_INTERFACE={% if shorewall_require_interface is defined %}{{ shorewall_require_interface }}{% else %}No{% endif %}
+RESTORE_DEFAULT_ROUTE={% if shorewall_restore_default_route is defined %}{{ shorewall_restore_default_route }}{% else %}Yes
+{% endif %}
 
-RESTART=restart{% if shorewall_restart is defined %}{{ shorewall_restart }}{% else %}{% endif %}
+RESTORE_ROUTEMARKS={% if shorewall_restore_routemarks is defined %}{{ shorewall_restore_routemarks }}{% else %}Yes
+{% endif %}
 
-RESTORE_DEFAULT_ROUTE={% if shorewall_restore_default_route is defined %}{{ shorewall_restore_default_route }}{% else %}Yes{% endif %}
+RETAIN_ALIASES={% if shorewall_retain_aliases is defined %}{{ shorewall_retain_aliases }}{% else %}No
+{% endif %}
 
-RESTORE_ROUTEMARKS={% if shorewall_restore_routemarks is defined %}{{ shorewall_restore_routemarks }}{% else %}Yes{% endif %}
+ROUTE_FILTER={% if shorewall_route_filter is defined %}{{ shorewall_route_filter }}{% else %}Yes
+{% endif %}
 
-RETAIN_ALIASES={% if shorewall_retain_aliases is defined %}{{ shorewall_retain_aliases }}{% else %}No{% endif %}
+SAVE_ARPTABLES={% if shorewall_save_arptables is defined %}{{ shorewall_save_arptables }}{% else %}No
+{% endif %}
 
-ROUTE_FILTER={% if shorewall_route_filter is defined %}{{ shorewall_route_filter }}{% else %}Yes{% endif %}
+SAVE_IPSETS={% if shorewall_save_ipsets is defined %}{{ shorewall_save_ipsets }}{% else %}No
+{% endif %}
 
-SAVE_ARPTABLES={% if shorewall_save_arptables is defined %}{{ shorewall_save_arptables }}{% else %}No{% endif %}
+TC_ENABLED={% if shorewall_tc_enabled is defined %}{{ shorewall_tc_enabled }}{% else %}Internal
+{% endif %}
 
-SAVE_IPSETS={% if shorewall_save_ipsets is defined %}{{ shorewall_save_ipsets }}{% else %}No{% endif %}
+TC_EXPERT={% if shorewall_tc_expert is defined %}{{ shorewall_tc_expert }}{% else %}No
+{% endif %}
 
-TC_ENABLED={% if shorewall_tc_enabled is defined %}{{ shorewall_tc_enabled }}{% else %}Internal{% endif %}
+TC_PRIOMAP={% if shorewall_tc_priomap is defined %}"{{ shorewall_tc_priomap }}"{% else %}"2 3 3 3 2 3 1 1 2 2 2 2 2 2 2 2"
+{% endif %}
 
-TC_EXPERT={% if shorewall_tc_expert is defined %}{{ shorewall_tc_expert }}{% else %}No{% endif %}
+TRACK_PROVIDERS={% if shorewall_track_providers is defined %}{{ shorewall_track_providers }}{% else %}Yes
+{% endif %}
 
-TC_PRIOMAP={% if shorewall_tc_priomap is defined %}"{{ shorewall_tc_priomap }}"{% else %}"2 3 3 3 2 3 1 1 2 2 2 2 2 2 2 2"{% endif %}
+TRACK_RULES={% if shorewall_track_rules is defined %}{{ shorewall_track_rules }}{% else %}No
+{% endif %}
 
-TRACK_PROVIDERS={% if shorewall_track_providers is defined %}{{ shorewall_track_providers }}{% else %}Yes{% endif %}
+USE_DEFAULT_RT={% if shorewall_use_default_rt is defined %}{{ shorewall_use_default_rt }}{% else %}Yes
+{% endif %}
 
-TRACK_RULES={% if shorewall_track_rules is defined %}{{ shorewall_track_rules }}{% else %}No{% endif %}
+USE_NFLOG_SIZE={% if shorewall_use_nflog_size is defined %}{{ shorewall_use_nflog_size }}{% else %}No
+{% endif %}
 
-USE_DEFAULT_RT={% if shorewall_use_default_rt is defined %}{{ shorewall_use_default_rt }}{% else %}Yes{% endif %}
+USE_PHYSICAL_NAMES={% if shorewall_use_physical_names is defined %}{{ shorewall_use_physical_names }}{% else %}No
+{% endif %}
 
-USE_NFLOG_SIZE={% if shorewall_use_nflog_size is defined %}{{ shorewall_use_nflog_size }}{% else %}No{% endif %}
+USE_RT_NAMES={% if shorewall_use_rt_names is defined %}{{ shorewall_use_rt_names }}{% else %}No
+{% endif %}
 
-USE_PHYSICAL_NAMES={% if shorewall_use_physical_names is defined %}{{ shorewall_use_physical_names }}{% else %}No{% endif %}
+VERBOSE_MESSAGES={% if shorewall_verbose_messages is defined %}{{ shorewall_verbose_messages }}{% else %}Yes
+{% endif %}
 
-USE_RT_NAMES={% if shorewall_use_rt_names is defined %}{{ shorewall_use_rt_names }}{% else %}No{% endif %}
+WARNOLDCAPVERSION={% if shorewall_warnoldcapversion is defined %}{{ shorewall_warnoldcapversion }}{% else %}Yes
+{% endif %}
 
-VERBOSE_MESSAGES={% if shorewall_verbose_messages is defined %}{{ shorewall_verbose_messages }}{% else %}Yes{% endif %}
+WORKAROUNDS={% if shorewall_workarounds is defined %}{{ shorewall_workarounds }}{% else %}No
+{% endif %}
 
-WARNOLDCAPVERSION={% if shorewall_warnoldcapversion is defined %}{{ shorewall_warnoldcapversion }}{% else %}Yes{% endif %}
+ZERO_MARKS={% if shorewall_zero_marks is defined %}{{ shorewall_zero_marks }}{% else %}No
+{% endif %}
 
-WORKAROUNDS={% if shorewall_workarounds is defined %}{{ shorewall_workarounds }}{% else %}No{% endif %}
-
-ZERO_MARKS={% if shorewall_zero_marks is defined %}{{ shorewall_zero_marks }}{% else %}No{% endif %}
-
-ZONE2ZONE={% if shorewall_zone2zone is defined %}{{ shorewall_zone2zone }}{% else %}-{% endif %}
+ZONE2ZONE={% if shorewall_zone2zone is defined %}{{ shorewall_zone2zone }}{% else %}-
+{% endif %}
 
 ###############################################################################
 #			P A C K E T   D I S P O S I T I O N
 ###############################################################################
 
-BLACKLIST_DISPOSITION={% if shorewall_blacklist_disposition is defined %}{{ shorewall_blacklist_disposition }}{% else %}DROP {% endif %}
+BLACKLIST_DISPOSITION={% if shorewall_blacklist_disposition is defined %}{{ shorewall_blacklist_disposition }}{% else %}DROP 
 
-INVALID_DISPOSITION={% if shorewall_invalid_disposition is defined %}{{ shorewall_invalid_disposition }}{% else %}CONTINUE {% endif %}
+{% endif %}
 
-MACLIST_DISPOSITION={% if shorewall_maclist_disposition is defined %}{{ shorewall_maclist_disposition }}{% else %}REJECT {% endif %}
+INVALID_DISPOSITION={% if shorewall_invalid_disposition is defined %}{{ shorewall_invalid_disposition }}{% else %}CONTINUE 
+{% endif %}
 
-RELATED_DISPOSITION={% if shorewall_related_disposition is defined %}{{ shorewall_related_disposition }}{% else %}ACCEPT {% endif %}
+MACLIST_DISPOSITION={% if shorewall_maclist_disposition is defined %}{{ shorewall_maclist_disposition }}{% else %}REJECT 
+{% endif %}
 
-RPFILTER_DISPOSITION={% if shorewall_rpfilter_disposition is defined %}{{ shorewall_rpfilter_disposition }}{% else %}DROP {% endif %}
+RELATED_DISPOSITION={% if shorewall_related_disposition is defined %}{{ shorewall_related_disposition }}{% else %}ACCEPT 
+{% endif %}
 
-SMURF_DISPOSITION={% if shorewall_smurf_disposition is defined %}{{ shorewall_smurf_disposition }}{% else %}DROP {% endif %}
+RPFILTER_DISPOSITION={% if shorewall_rpfilter_disposition is defined %}{{ shorewall_rpfilter_disposition }}{% else %}DROP 
+{% endif %}
 
-SFILTER_DISPOSITION={% if shorewall_sfilter_disposition is defined %}{{ shorewall_sfilter_disposition }}{% else %}DROP {% endif %}
+SMURF_DISPOSITION={% if shorewall_smurf_disposition is defined %}{{ shorewall_smurf_disposition }}{% else %}DROP 
+{% endif %}
 
-TCP_FLAGS_DISPOSITION={% if shorewall_tcp_flags_disposition is defined %}{{ shorewall_tcp_flags_disposition }}{% else %}DROP {% endif %}
+SFILTER_DISPOSITION={% if shorewall_sfilter_disposition is defined %}{{ shorewall_sfilter_disposition }}{% else %}DROP 
+{% endif %}
 
-UNTRACKED_DISPOSITION={% if shorewall_untracked_disposition is defined %}{{ shorewall_untracked_disposition }}{% else %}CONTINUE {% endif %}
+TCP_FLAGS_DISPOSITION={% if shorewall_tcp_flags_disposition is defined %}{{ shorewall_tcp_flags_disposition }}{% else %}DROP 
+{% endif %}
+
+UNTRACKED_DISPOSITION={% if shorewall_untracked_disposition is defined %}{{ shorewall_untracked_disposition }}{% else %}CONTINUE 
+{% endif %}
 
 ################################################################################
 #			P A C K E T  M A R K  L A Y O U T
 ################################################################################
 
-TC_BITS={% if shorewall_tc_bits is defined %}{{ shorewall_tc_bits }}{% else %}{% endif %}
+TC_BITS={% if shorewall_tc_bits is defined %}{{ shorewall_tc_bits }}{% else %}
+{% endif %}
 
-PROVIDER_BITS={% if shorewall_provider_bits is defined %}{{ shorewall_provider_bits }}{% else %}{% endif %}
+PROVIDER_BITS={% if shorewall_provider_bits is defined %}{{ shorewall_provider_bits }}{% else %}
+{% endif %}
 
-PROVIDER_OFFSET={% if shorewall_provider_offset is defined %}{{ shorewall_provider_offset }}{% else %}{% endif %}
+PROVIDER_OFFSET={% if shorewall_provider_offset is defined %}{{ shorewall_provider_offset }}{% else %}
+{% endif %}
 
-MASK_BITS={% if shorewall_mask_bits is defined %}{{ shorewall_mask_bits }}{% else %}{% endif %}
+MASK_BITS={% if shorewall_mask_bits is defined %}{{ shorewall_mask_bits }}{% else %}
+{% endif %}
 
-ZONE_BITS={% if shorewall_zone_bits is defined %}{{ shorewall_zone_bits }}{% else %}0{% endif %}
+ZONE_BITS={% if shorewall_zone_bits is defined %}{{ shorewall_zone_bits }}{% else %}0
+{% endif %}
