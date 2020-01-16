@@ -25,25 +25,25 @@ startup={% if shorewall_startup is defined %}{{ shorewall_startup }}{% else %}0
 #
 # Global start/restart/reload/stop options
 #
-OPTIONS={% if shorewall_options is defined %}"{{ shorewall_options }}"
+OPTIONS={% if shorewall_options is defined %}"{{ shorewall_options }}"{% else %}""
 {% endif %}
 
 #
 # Start options
 #
-STARTOPTIONS={% if shorewall_startoptions is defined %}"{{ shorewall_startoptions }}"
+STARTOPTIONS={% if shorewall_startoptions is defined %}"{{ shorewall_startoptions }}"{% else %}""
 {% endif %}
 
-RELOADOPTIONS={% if shorewall_reloadoptions is defined %}"{{ shorewall_reloadoptions }}"
+RELOADOPTIONS={% if shorewall_reloadoptions is defined %}"{{ shorewall_reloadoptions }}"{% else %}""
 {% endif %}
 
-STOPOPTIONS={% if shorewall_stopoptions is defined %}"{{ shorewall_stopoptions }}"
+STOPOPTIONS={% if shorewall_stopoptions is defined %}"{{ shorewall_stopoptions }}"{% else %}""
 {% endif %}
 
 #
 # Restart options
 #
-RESTARTOPTIONS={% if shorewall_restartoptions is defined %}"{{ shorewall_restartoptions }}"
+RESTARTOPTIONS={% if shorewall_restartoptions is defined %}"{{ shorewall_restartoptions }}"{% else %}""
 {% endif %}
 
 #
